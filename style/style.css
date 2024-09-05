@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+:root {
+    /* Cores Inspiradas em Harry Potter */
+    --primary-color: #2c2c2c; /* Azul de Ravenclaw */
+    --secondary-color: #730F11; /* Cor neutra clara */
+    --card-background1: #AD1E24; /* Vermelho de Gryffindor */
+    --card-background2: #EBB932; /* Verde de Slytherin */
+    --text-color: #ffffff; /* Preto para texto */
+    --footer-bg-color: #D3A629; /* Preto de Hufflepuff */
+    --footer-text-color: #ffffff; /* Amarelo de Hufflepuff */
+}
+
+
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    min-height: 100%;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    height: 100px;
+}
+
+
+/* Input e botão de pesquisa */
+.pesquisar-container {
+    text-align: center;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    height: 48px;
+    
+    border: 2px solid var(--card-background2);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--card-background2);
+    color: var(--footer-text-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 48px;
+}
+
+button:hover {
+    background-color: var(--card-background1);
+}
+
+/* Área dos cards com scroll */
+.cards-container {
+    max-height: 600px; /* Defina o valor que achar adequado */
+    overflow-y: auto;
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cards-container::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+.cards-container::-webkit-scrollbar-track {
+    background: var(--card-background2); /* Cor do trilho da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas do trilho */
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: var(--card-background1); /* Cor do polegar (parte móvel) da barra de rolagem */
+    border-radius: 10px; /* Bordas arredondadas do polegar */
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor do polegar quando é passado o mouse sobre ele */
+}
+
+/* Cards dos personagens */
+/* Estilos gerais */
+.card-personagem {
+    background-color: var(--card-background1); /* Cor padrão */
+    margin: 24px 0;
+    padding: 20px;
+    border-radius: 10px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo específico para a casa Sonserina */
+.card-personagem.sonserina {
+    background-color: #1F7250 !important; /* Verde da Sonserina */
+}
+
+.card-personagem:nth-child(even) {
+    background-color: var(--card-background2); /* Cor alternada para outros cards */
+}
+
+.card-personagem h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.card-personagem p {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.card-personagem a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+}
+
+.card-personagem a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 100%;
+    }
+
+    .cards-container {
+        width: 95%;
+    }
+}
