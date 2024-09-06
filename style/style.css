@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-
 :root {
     /* Cores Inspiradas em Harry Potter */
     --primary-color: #2c2c2c; /* Azul de Ravenclaw */
@@ -12,15 +11,6 @@
     --footer-text-color: #ffffff; /* Amarelo de Hufflepuff */
 }
 
-
-/* Estilos gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -46,12 +36,17 @@ header {
     gap: 16px;
 }
 
+/* Efeito de rotação suave na logo */
 .logo {
     height: 100px;
+    transition: transform 0.5s ease-in-out;
 }
 
+.logo:hover {
+    transform: rotate(360deg); /* Gira a logo ao passar o mouse */
+}
 
-/* Input e botão de pesquisa */
+/* Pesquisar container */
 .pesquisar-container {
     text-align: center;
     display: flex;
@@ -64,12 +59,12 @@ input[type="text"] {
     width: 300px;
     padding: 10px;
     height: 48px;
-    
     border: 2px solid var(--card-background2);
     border-radius: 5px;
     font-size: 1rem;
 }
 
+/* Botão com efeito de escala e sombra ao passar o mouse */
 button {
     padding: 10px 20px;
     background-color: var(--card-background2);
@@ -79,73 +74,90 @@ button {
     font-size: 1rem;
     cursor: pointer;
     height: 48px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
     background-color: var(--card-background1);
+    transform: scale(1.1); /* Aumenta o botão em 10% */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra mais intensa */
 }
 
 /* Área dos cards com scroll */
 .cards-container {
-    max-height: 600px; /* Defina o valor que achar adequado */
+    max-height: 600px;
     overflow-y: auto;
-    
     padding: 20px;
     width: 70%;
     margin: 0 auto;
 }
+
 .cards-container::-webkit-scrollbar {
-    width: 12px; /* Largura da barra de rolagem */
+    width: 12px;
 }
 
 .cards-container::-webkit-scrollbar-track {
-    background: var(--card-background2); /* Cor do trilho da barra de rolagem */
-    border-radius: 10px; /* Bordas arredondadas do trilho */
+    background: var(--card-background2);
+    border-radius: 10px;
 }
 
 .cards-container::-webkit-scrollbar-thumb {
-    background: var(--card-background1); /* Cor do polegar (parte móvel) da barra de rolagem */
-    border-radius: 10px; /* Bordas arredondadas do polegar */
+    background: var(--card-background1);
+    border-radius: 10px;
 }
 
 .cards-container::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Cor do polegar quando é passado o mouse sobre ele */
+    background: #555;
 }
 
 /* Cards dos personagens */
-/* Estilos gerais */
 .card-personagem {
-    background-color: var(--card-background1); /* Cor padrão */
+    background-color: var(--card-background1);
     margin: 24px 0;
     padding: 20px;
     border-radius: 10px;
     height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.5s ease;
+    position: relative;
 }
+
+/* Efeito de flutuação nos cards ao passar o mouse */
+.card-personagem:hover {
+    transform: translateY(-10px); /* Faz o card "flutuar" para cima */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais pronunciada */
+}
+
+/* Efeito de zoom na imagem ao passar o mouse */
 .card-personagem .imagem-container {
-    width: 150px; /* Ajuste conforme necessário */
-    height: 175px; /* Ajuste conforme necessário */
-    border-radius: 50%; /* Faz a imagem circular */
-    overflow: hidden; /* Garante que a imagem não ultrapasse o contêiner circular */
-    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+    width: 150px;
+    height: 175px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: center; /* Centraliza a imagem horizontalmente */
-    align-items: center; /* Centraliza a imagem verticalmente */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease; /* Transição suave */
 }
 
 .card-personagem .imagem-container img {
-    width: 100%; /* Faz a imagem preencher o contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    object-fit: cover; /* Cobre o contêiner sem distorcer a imagem */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Transição suave */
 }
-/* Estilo específico para a casa Sonserina */
+
+.card-personagem .imagem-container:hover img {
+    transform: scale(1.2); /* Zoom na imagem ao passar o mouse */
+}
+
 .card-personagem.sonserina {
-    background-color: #1F7250 !important; /* Verde da Sonserina */
+    background-color: #1F7250 !important;
 }
 
 .card-personagem:nth-child(even) {
-    background-color: var(--card-background2); /* Cor alternada para outros cards */
+    background-color: var(--card-background2);
 }
 
 .card-personagem h2 {
@@ -167,7 +179,6 @@ button:hover {
     text-decoration: underline;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
     input[type="text"] {
         width: 100%;
